@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://zen-notes.example.com/sitemap.xml

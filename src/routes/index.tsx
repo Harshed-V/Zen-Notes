@@ -576,12 +576,17 @@ function NotesApp() {
                   <div className="mx-auto mb-6 size-16 grid place-items-center rounded-full bg-surface/60 border border-border/50">
                     <FileText className="size-8 text-ink-secondary/60" strokeWidth={1.5} />
                   </div>
-                  <h2 className="font-serif text-3xl md:text-4xl tracking-tight font-bold">
-                    A quiet space <span className="italic text-ink-secondary">to think</span>.
-                  </h2>
+                  <h1 className="font-serif text-3xl md:text-4xl tracking-tight font-bold">
+                    Zen Notes: A quiet space <span className="italic text-ink-secondary">to think</span>.
+                  </h1>
                   <p className="mt-4 text-[14px] text-ink-secondary/80 leading-relaxed">
-                    Select a note from the sidebar, or create something new to begin your writing journey.
+                    Welcome to the ultimate distraction-free markdown notes app. Zen Notes is designed for deep work, focused writing, and privacy-conscious thinking. Your notes are saved locally, ensuring you can write offline with full markdown support, keyboard shortcuts, and a premium aesthetic.
                   </p>
+                  <div className="mt-6 text-[12px] text-ink-secondary/60 flex flex-wrap justify-center gap-4">
+                    <span className="flex items-center gap-1"><Check className="size-3" /> Markdown Support</span>
+                    <span className="flex items-center gap-1"><Check className="size-3" /> Offline-First</span>
+                    <span className="flex items-center gap-1"><Check className="size-3" /> Secure & Private</span>
+                  </div>
                   <button
                     onClick={createNote}
                     className="mt-8 h-10 inline-flex items-center gap-1.5 px-4 text-[13px] font-medium bg-ink-primary text-primary-foreground rounded-lg hover:bg-ink-primary/90 transition-all hover:shadow-md active:scale-95"
