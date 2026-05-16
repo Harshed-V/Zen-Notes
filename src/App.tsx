@@ -1,5 +1,5 @@
-import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useMemo, useState, useRef, useCallback } from "react";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import {
   Search,
   Plus,
@@ -16,26 +16,8 @@ import {
   X,
   Check,
   Clock,
-  Edit3,
 } from "lucide-react";
-
-export const Route = createFileRoute("/")({
-  component: NotesApp,
-  head: () => ({
-    meta: [
-      { title: "ZEN Notes — Quiet, focused note-taking" },
-      { name: "description", content: "A minimal, distraction-free notes app." },
-    ],
-    links: [
-      { rel: "preconnect", href: "https://fonts.googleapis.com" },
-      { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
-      {
-        rel: "stylesheet",
-        href: "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Instrument+Serif:ital@0;1&display=swap",
-      },
-    ],
-  }),
-});
+import "./styles.css";
 
 type Note = {
   id: string;
@@ -314,15 +296,13 @@ function NotesApp() {
     URL.revokeObjectURL(url);
   }, [active]);
 
-  // Keyboard shortcuts: Cmd/Ctrl+N for new note, Ctrl+S for save, Ctrl+K for search, Delete for remove
+  // Keyboard shortcuts
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
-      // Cmd/Ctrl+N: New note
       if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "n") {
         e.preventDefault();
         createNote();
       }
-      // Cmd/Ctrl+S: Save (trigger autosave immediately)
       if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "s") {
         e.preventDefault();
         if (autoSaveTimer.current) clearTimeout(autoSaveTimer.current);
@@ -331,16 +311,13 @@ function NotesApp() {
           setLastSaved(Date.now());
         } catch {}
       }
-      // Cmd/Ctrl+K: Focus search
       if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k") {
         e.preventDefault();
         const searchInput = document.querySelector("[data-search-input]") as HTMLInputElement;
         if (searchInput) searchInput.focus();
       }
-      // Delete or Backspace in sidebar (if search is focused): delete active note
       if ((e.key === "Delete" || e.key === "Backspace") && active && query === "") {
         const target = e.target as HTMLElement;
-        // Only delete if not typing in an input
         if (!target.closest("input") && !target.closest("textarea")) {
           e.preventDefault();
           deleteActive();
@@ -601,5 +578,15 @@ function NotesApp() {
         </div>
       </div>
     </div>
+  );
+}
+
+const queryClient = new QueryClient();
+
+export default function App() {
+  return (
+    <QueryClientProvider client={queryClient}>
+      <NotesApp />
+    </QueryClientProvider>
   );
 }
