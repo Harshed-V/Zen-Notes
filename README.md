@@ -4,7 +4,10 @@
 
 **ZEN Notes** is a premium, lightweight note-taking application that prioritizes your thoughts. Built with a "less is more" philosophy, it provides a quiet digital environment where you can write, organize, and export your ideas without the noise of traditional productivity tools.
 
+## 🌐 Live Demo
 
+Experience ZEN Notes live:  
+🔗 https://zen-notes-v2.vercel.app/
 
 ## ✨ Features
 
