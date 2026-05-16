@@ -522,10 +522,10 @@ function NotesApp() {
                 {previewMode ? (
                   <div className="flex-1 overflow-y-auto px-4 md:px-8 py-8 md:py-12 max-w-3xl w-full mx-auto">
                     <div className="prose prose-invert max-w-none">
-                      <h1 className="font-serif text-3xl md:text-4xl font-bold mb-6 tracking-tight">
+                      <h1 className="font-serif text-4xl md:text-5xl font-bold mb-8 tracking-tight">
                         {active.title || "Untitled"}
                       </h1>
-                      <div className="text-ink-primary leading-relaxed space-y-3">
+                      <div className="text-ink-primary text-[17px] md:text-[19px] leading-[1.7] space-y-5">
                         {renderMarkdown(active.body)}
                       </div>
                     </div>
@@ -536,33 +536,33 @@ function NotesApp() {
                       value={active.title}
                       onChange={(e) => updateActive({ title: e.target.value })}
                       placeholder="Title"
-                      className="w-full font-serif text-3xl md:text-5xl font-bold tracking-tight bg-transparent outline-none placeholder:text-ink-secondary/40 mb-6"
+                      className="w-full font-serif text-4xl md:text-6xl font-bold tracking-tight bg-transparent outline-none placeholder:text-ink-secondary/30 mb-8"
                     />
                     <textarea
                       value={active.body}
                       onChange={(e) => updateActive({ body: e.target.value })}
                       placeholder="Begin writing…"
-                      className="w-full min-h-[50vh] md:min-h-[60vh] resize-none bg-transparent outline-none text-[15px] md:text-[16px] leading-relaxed placeholder:text-ink-secondary/40"
+                      className="w-full min-h-[60vh] md:min-h-[70vh] resize-none bg-transparent outline-none text-[17px] md:text-[19px] leading-[1.7] placeholder:text-ink-secondary/30"
                     />
                   </div>
                 )}
               </>
             ) : (
-              <div className="flex-1 grid place-items-center px-4 md:px-6 py-8">
-                <div className="text-center max-w-sm">
-                  <div className="mx-auto mb-6 size-16 grid place-items-center rounded-full bg-surface/60 border border-border/50">
-                    <FileText className="size-8 text-ink-secondary/60" strokeWidth={1.5} />
+              <div className="flex-1 grid place-items-center px-4 md:px-6 py-12 md:py-24">
+                <div className="text-center max-w-2xl px-6">
+                  <div className="mx-auto mb-10 size-20 grid place-items-center rounded-2xl bg-surface/60 border border-border/50 shadow-sm animate-fade-in">
+                    <FileText className="size-10 text-ink-secondary/60" strokeWidth={1.2} />
                   </div>
-                  <h1 className="font-serif text-3xl md:text-4xl tracking-tight font-bold">
+                  <h1 className="font-serif text-4xl md:text-6xl tracking-tight font-bold mb-8 animate-slide-in-top">
                     Zen Notes: A quiet space <span className="italic text-ink-secondary">to think</span>.
                   </h1>
-                  <p className="mt-4 text-[14px] text-ink-secondary/80 leading-relaxed">
+                  <p className="mt-6 text-[16px] md:text-[18px] text-ink-secondary/80 leading-relaxed max-w-xl mx-auto animate-fade-in" style={{ animationDelay: '100ms' }}>
                     Welcome to the ultimate distraction-free markdown notes app. Zen Notes is designed for deep work, focused writing, and privacy-conscious thinking. Your notes are saved locally, ensuring you can write offline with full markdown support, keyboard shortcuts, and a premium aesthetic.
                   </p>
-                  <div className="mt-6 text-[12px] text-ink-secondary/60 flex flex-wrap justify-center gap-4">
-                    <span className="flex items-center gap-1"><Check className="size-3" /> Markdown Support</span>
-                    <span className="flex items-center gap-1"><Check className="size-3" /> Offline-First</span>
-                    <span className="flex items-center gap-1"><Check className="size-3" /> Secure & Private</span>
+                  <div className="mt-10 text-[13px] md:text-[14px] text-ink-secondary/60 flex flex-wrap justify-center gap-6 animate-fade-in" style={{ animationDelay: '200ms' }}>
+                    <span className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-surface/40 border border-border/30"><Check className="size-4 text-accent" /> Markdown Support</span>
+                    <span className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-surface/40 border border-border/30"><Check className="size-4 text-accent" /> Offline-First</span>
+                    <span className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-surface/40 border border-border/30"><Check className="size-4 text-accent" /> Secure & Private</span>
                   </div>
                   <button
                     onClick={createNote}
