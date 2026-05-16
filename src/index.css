@@ -168,10 +168,6 @@ code,
 .animate-scale-in {
   animation: scaleIn 200ms ease-out forwards;
 }
-  display: inline-flex;
-  border-radius: 4px;
-  color: var(--text-h);
-}
 
 code {
   font-size: 15px;
