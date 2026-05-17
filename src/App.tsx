@@ -554,7 +554,7 @@ function NotesApp() {
                     <FileText className="size-10 text-ink-secondary/60" strokeWidth={1.2} />
                   </div>
                   <h1 className="font-serif text-4xl md:text-6xl tracking-tight font-bold mb-8 animate-slide-in-top">
-                    Zen Notes: A quiet space <span className="italic text-ink-secondary">to think</span>.
+                    <span className="hero-muted">Zen Notes: A quiet space</span> <span className="italic text-ink-secondary">to think</span>.
                   </h1>
                   <p className="mt-6 text-[16px] md:text-[18px] text-ink-secondary/80 leading-relaxed max-w-xl mx-auto animate-fade-in" style={{ animationDelay: '100ms' }}>
                     Welcome to the ultimate distraction-free markdown notes app. Zen Notes is designed for deep work, focused writing, and privacy-conscious thinking. Your notes are saved locally, ensuring you can write offline with full markdown support, keyboard shortcuts, and a premium aesthetic.
